@@ -1,0 +1,5 @@
+
+ln -s git/dotfiles/.bashrc ~.bashrc
+ln -s git/dotfiles/.bash_profile ~.bash_profile
+ln -s git/dotfiles/.xinitrc ~.xinitrc
+ln -s git/dotfiles/.vimrc ~.vimrc
