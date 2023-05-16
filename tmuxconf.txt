@@ -1,0 +1,38 @@
+## Tmux conf
+set-option -g set-titles on                                                         # Automatically set window title
+set-option -g status-position top                                                   # position the status bar at top of screen
+set-option -g monitor-activity off                                                  # Deaktiviere "Markierung" aktiver Fenster
+set-option -g renumber-windows on                                                   # Automatische Neu-Nummerierung der Fenster aktivieren; Beispielsweise nach dem Schließen eines Fensters
+set-option -g base-index 1                                                          # Nummerierung der Fenster und Teilfenster jeweils mit 1 beginnen
+set -g pane-base-index 1                                                            # Nummerierung der Fenster und Teilfenster jeweils mit 1 beginnen
+set-option -g status-right "#(hostname -f)"                                         # Statuszeile - rechts
+set -g status-right-length 100
+set-option -gw aggressive-resize on
+set -g default-terminal screen-256color                                                                                                                     # Farb-Optionen für Shell-Fenster
+set -g history-limit 50000                                                          # increase scrollback buffer size
+set -g mouse on                                                                     # Maus-Unterstützung aktivieren
+set-window-option -g clock-mode-style 24                                            # Uhrzeit auf 24h Format
+set-window-option -g pane-base-index 1                                              # Nummerierung der Fenster und Teilfenster jeweils mit 1 beginnen:
+set-window-option -g automatic-rename on                                            # Automatically set window title
+
+#------------ Buttons ------------#
+bind k select-pane -U                                                               # Wechsle Fenster mit vim keybindings
+bind j select-pane -D                                                               # Wechsle Fenster mit vim keybindings
+bind h select-pane -L                                                               # Wechsle Fenster mit vim keybindings
+bind l select-pane -R                                                               # Wechsle Fenster mit vim keybindings
+unbind '"'                                                                          # alte Tastenkombination deaktivieren
+unbind %                                                                            # alte Tastenkombination deaktivieren
+bind | split-window -h                                                              # Vertikal splitten
+bind - split-window -v                                                              # Horizontal splitten
+
+set -s escape-time 0                                                                # address vim mode switching delay (http://superuser.com/a/252717/65504)
+set -g display-time 4000                                                            # tmux messages are displayed for 4 seconds
+
+# schließe windows mit prefix + w
+bind w killw
+# öffne windows mit prefix + t
+bind t new-window
+# gehe in copy mode und starte suche
+# prefix + f
+set-window-option -g mode-keys vi
+bind f copy-mode\; send-keys ?
