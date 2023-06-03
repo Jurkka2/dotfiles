@@ -8,7 +8,7 @@
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias ll='ls -la'
-PS1='[\u@\h \W]\$ '
-
+PS1='[\u@\h \W] '
 
 . "$HOME/.cargo/env"
+
